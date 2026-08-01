@@ -191,6 +191,45 @@
     .readout div:nth-child(2){ border-right:none; }
   }
 
+  /* ---------- ticker / data strip ---------- */
+  .ticker-wrap{
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    background:var(--bg-alt);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:12px 0;
+  }
+  .ticker-track{
+    display:inline-flex;
+    animation:ticker-scroll 26s linear infinite;
+    will-change:transform;
+  }
+  .ticker-seg{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    color:var(--text-dim);
+    padding-right:0;
+  }
+  .ticker-seg i{
+    color:var(--gold);
+    font-style:normal;
+    margin:0 2px;
+  }
+  .ticker-highlight{
+    color:var(--gold-bright);
+    font-weight:600;
+  }
+  @keyframes ticker-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker-track{ animation:none; }
+    .ticker-wrap{ overflow-x:auto; }
+  }
+
   /* ---------- section shell ---------- */
   section{
     padding:56px 0;
@@ -323,6 +362,62 @@
   .card p{
     font-size:0.88rem;
     color:var(--text-muted);
+  }
+
+  /* ---------- freelance track record ---------- */
+  .review{
+    border:1px solid var(--border-soft);
+    background:var(--bg-alt);
+    border-radius:6px;
+    padding:22px 24px;
+    margin-bottom:16px;
+  }
+  .review-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:8px;
+  }
+  .review-title{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    font-weight:600;
+    max-width:60ch;
+  }
+  .review-meta{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-dim);
+    white-space:nowrap;
+  }
+  .review-stars{ color:var(--gold); letter-spacing:1px; }
+  .review-quote{
+    font-style:italic;
+    color:var(--text-muted);
+    font-size:0.92rem;
+    margin:10px 0 14px;
+    padding-left:14px;
+    border-left:2px solid var(--gold);
+  }
+  .review-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .review-tag{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--steel);
+    border:1px solid var(--border);
+    padding:4px 10px;
+    border-radius:20px;
   }
 
   /* ---------- certification stamps ---------- */
@@ -513,6 +608,7 @@
       <li><a href="#education">Pendidikan</a></li>
       <li><a href="#certifications">Sertifikasi</a></li>
       <li><a href="#skills">Keahlian</a></li>
+      <li><a href="#freelance">Freelance</a></li>
       <li><a href="#contact">Kontak</a></li>
     </ul>
   </div>
@@ -520,8 +616,7 @@
 
 <div class="wrap doc">
   <div class="doc-top">
-    <div class="eyebrow">Sertifikat Analisis Profesional <span>/ Rev. 03</span></div>
-    <div class="stamp">✓ Rekam Terverifikasi</div>
+    <div class="eyebrow">Sertifikat Analisis Profesional</div>
   </div>
   <h1 class="name">Riza Ahmad Haidar</h1>
   <p class="title">Profesional Quality Control & Industrial Engineer</p>
@@ -531,6 +626,13 @@
     <div><div class="val">4</div><div class="lbl">Sertifikasi</div></div>
     <div><div class="val">3</div><div class="lbl">Industri</div></div>
     <div><div class="val">3.68</div><div class="lbl">IPK · T. Industri</div></div>
+  </div>
+</div>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-seg">QUALITY CONTROL <i>·</i> CHEMICAL ANALYSIS <i>·</i> ISO 9001 <i>·</i> ISO 14001 <i>·</i> ISO 22000 <i>·</i> HPLC <i>·</i> GC <i>·</i> UV-VIS <i>·</i> FTIR <i>·</i> AAS <i>·</i> LEAN MANUFACTURING <i>·</i> <span class="ticker-highlight">OPEN TO WORK</span> <i>·</i> </span>
+    <span class="ticker-seg">QUALITY CONTROL <i>·</i> CHEMICAL ANALYSIS <i>·</i> ISO 9001 <i>·</i> ISO 14001 <i>·</i> ISO 22000 <i>·</i> HPLC <i>·</i> GC <i>·</i> UV-VIS <i>·</i> FTIR <i>·</i> AAS <i>·</i> LEAN MANUFACTURING <i>·</i> <span class="ticker-highlight">OPEN TO WORK</span> <i>·</i> </span>
   </div>
 </div>
 
@@ -704,9 +806,73 @@
   </div>
 </section>
 
-<section id="achievements" class="wrap reveal">
+<section id="freelance" class="wrap reveal">
   <div class="sec-head">
     <span class="sec-tag">06</span>
+    <h2>Rekam Jejak Freelance — Upwork</h2>
+  </div>
+
+  <div class="readout" style="margin-bottom:32px;">
+    <div><div class="val">6</div><div class="lbl">Pekerjaan Selesai</div></div>
+    <div><div class="val">2</div><div class="lbl">Sedang Berjalan</div></div>
+    <div><div class="val">5.0</div><div class="lbl">Rating Rata-rata</div></div>
+    <div><div class="val">100%</div><div class="lbl">Ulasan Bintang 5</div></div>
+  </div>
+
+  <div class="review">
+    <div class="review-head">
+      <div class="review-title">Copywriter Non-Fiction — Bab Pembuka Novel eBook</div>
+      <div class="review-meta"><span class="review-stars">★★★★★</span> 5.0 · Agu 2025 – Jan 2026</div>
+    </div>
+    <p class="review-quote">"Quickest typeset writer in the universe with impressive turnaround."</p>
+    <div class="review-tags">
+      <span class="review-tag">Reliable</span>
+      <span class="review-tag">Solution Oriented</span>
+      <span class="review-tag">Detail Oriented</span>
+    </div>
+  </div>
+
+  <div class="review">
+    <div class="review-head">
+      <div class="review-title">Science-Based eBook — Final Closing Commentary</div>
+      <div class="review-meta"><span class="review-stars">★★★★★</span> 5.0 · Agu – Okt 2025</div>
+    </div>
+    <p class="review-quote">"A diligent task completer. Versatile and tenacious."</p>
+    <div class="review-tags">
+      <span class="review-tag">Reliable</span>
+    </div>
+  </div>
+
+  <div class="review">
+    <div class="review-head">
+      <div class="review-title">Beta Tester — Aplikasi Pengambilan Keputusan Sosial</div>
+      <div class="review-meta"><span class="review-stars">★★★★★</span> 5.0 · Jun – Okt 2025</div>
+    </div>
+    <p class="review-quote">"Riza did great work. Attentive, consistent, and on task. Thank you!"</p>
+  </div>
+
+  <div class="review">
+    <div class="review-head">
+      <div class="review-title">Partisipan Eksperimen Meditasi / Visualisasi</div>
+      <div class="review-meta"><span class="review-stars">★★★★★</span> 5.0 · Des 2024 – Mei 2025 · 3 proyek</div>
+    </div>
+    <p class="review-quote">Diselesaikan secara konsisten di tiga siklus eksperimen terpisah dengan rating sempurna.</p>
+  </div>
+
+  <div class="skill-row" style="margin-top:8px;">
+    <span class="k">Skill Freelance</span>
+    <div class="chips">
+      <span class="chip">Writing</span>
+      <span class="chip">2D Design</span>
+      <span class="chip">Banner</span>
+      <span class="chip">Data Entry</span>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" class="wrap reveal">
+  <div class="sec-head">
+    <span class="sec-tag">07</span>
     <h2>Prestasi & Pengalaman Organisasi</h2>
   </div>
   <div class="timeline">
@@ -757,6 +923,7 @@
     <div class="contact-list">
       <div><span class="k">Email</span><a href="mailto:rizaahmadhaidar28@gmail.com">rizaahmadhaidar28@gmail.com</a></div>
       <div><span class="k">Telepon</span><span>+62 878-8532-8691</span></div>
+      <div><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/riza-ahmad-haidar" target="_blank" rel="noopener">linkedin.com/in/riza-ahmad-haidar</a></div>
       <div><span class="k">Alamat</span><span>Jl. Ciliwung, Cililitan, Kramat Jati, Jakarta Timur 13640</span></div>
     </div>
   </div>
